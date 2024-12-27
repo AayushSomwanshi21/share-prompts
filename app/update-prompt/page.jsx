@@ -5,11 +5,11 @@ import { useEffect, useState, Suspense } from "react"
 import Form from '@components/Form'
 
 
-const EditPrompt = () => {
+const UpdatePrompt = () => {
 
     const router = useRouter();
     const searchParams = useSearchParams();
-    const promptID = searchParams?.get('id');
+    const promptID = searchParams.get('id');
 
     const [submitting, setSubmitting] = useState(false)
     const [post, setPost] = useState({
@@ -74,7 +74,7 @@ const EditPrompt = () => {
 const Page = () => {
     return (
         <Suspense>
-            <EditPrompt />
+            <UpdatePrompt />
         </Suspense>
     )
 }
