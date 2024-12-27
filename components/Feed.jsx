@@ -61,10 +61,14 @@ const Feed = () => {
                 <input type="text" placeholder="Search for a tag or a username" value={searchText} onChange={handleSearchChange} required className="search_input peer" />
             </form>
 
-            <PromptCardList
-                data={searchText ? filteredposts : posts}
-                handleTagClick={handleTagClick}
-            />
+            {searchText ? (
+                <PromptCardList
+                    data={filteredposts}
+                    handleTagClick={handleTagClick}
+                />
+            ) : (
+                <PromptCardList data={posts} handleTagClick={handleTagClick} />
+            )}
 
         </section>
     )
