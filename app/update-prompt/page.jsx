@@ -9,7 +9,7 @@ const EditPrompt = () => {
 
     const router = useRouter();
     const searchParams = useSearchParams();
-    const promptID = searchParams.get('id');
+    const promptID = searchParams?.get('id');
 
     const [submitting, setSubmitting] = useState(false)
     const [post, setPost] = useState({
