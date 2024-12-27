@@ -71,4 +71,12 @@ const EditPrompt = () => {
     )
 }
 
-export default EditPrompt;
+const Page = () => {
+    return (
+        <Suspense>
+            <EditPrompt />
+        </Suspense>
+    )
+}
+
+export default Page;
