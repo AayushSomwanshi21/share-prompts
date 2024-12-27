@@ -71,10 +71,4 @@ const EditPrompt = () => {
     )
 }
 
-export default function UpdatePromptPage() {
-    return (
-        <Suspense fallback={<div>Loading...</div>}>
-            <EditPrompt />
-        </Suspense>
-    );
-}
+export default EditPrompt;
