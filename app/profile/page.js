@@ -53,7 +53,7 @@ const MyProfile = () => {
             fetchPosts();
         }
 
-    }, []);
+    }, [session?.user.id]);
 
     return (
         <Profile
