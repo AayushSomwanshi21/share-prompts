@@ -25,21 +25,12 @@ const Feed = () => {
     const [searchText, setSearchText] = useState("");
     const [searchTimeout, setSearchTimeout] = useState(null);
     const [searchedResults, setSearchedResults] = useState([]);
-    const [isLoading, setLoading] = useState(true);
 
     const fetchPosts = async () => {
-        setLoading(true);
-        try {
-            const response = await fetch("/api/prompt");
-            if (!response.ok) throw new Error("Failed to fetch posts");
+        const response = await fetch("/api/prompt");
+        const data = await response.json();
 
-            const data = await response.json();
-            setAllPosts(data);
-        } catch (error) {
-            console.error("Error fetching posts:", error);
-        } finally {
-            setLoading(false); // Set loading to false after fetching
-        }
+        setAllPosts(data);
     };
 
     useEffect(() => {
@@ -90,9 +81,7 @@ const Feed = () => {
             </form>
 
             {/* All Prompts */}
-            {isLoading ? (
-                <p>Loading posts...</p> // Or any custom spinner/loading indicator
-            ) : searchText ? (
+            {searchText ? (
                 <PromptCardList
                     data={searchedResults}
                     handleTagClick={handleTagClick}
